@@ -393,6 +393,11 @@ static int connectionBusyHandler(void *ptr, int count)
 	extensionsReady = ([registeredExtensions count] == 0);
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ - %@", [super description], _name];
+}
+
 - (void)dealloc
 {
 	YDBLogVerbose(@"Dealloc <YapDatabaseConnection %p: databaseName=%@>",
