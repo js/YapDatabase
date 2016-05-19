@@ -27,6 +27,7 @@
  * For example, you could enable errors and info, but not warnings, if you wanted.
 **/
 
+#define YDB_LOG_VERBOSE (YES)
 #define YDB_LOG_FLAG_ERROR   (1 << 0) // 0...00001
 #define YDB_LOG_FLAG_WARN    (1 << 1) // 0...00010
 #define YDB_LOG_FLAG_INFO    (1 << 2) // 0...00100
@@ -64,12 +65,10 @@
  * Instead, you should override the default values in your own application.
 **/
 
-#define YapDatabaseLoggingTechnique_Lumberjack 2 // optimal
 #define YapDatabaseLoggingTechnique_NSLog      1 // slower
-#define YapDatabaseLoggingTechnique_Disabled   0 // disabled
 
 #ifndef YapDatabaseLoggingTechnique
-#define YapDatabaseLoggingTechnique YapDatabaseLoggingTechnique_Lumberjack
+#define YapDatabaseLoggingTechnique YapDatabaseLoggingTechnique_NSLog
 #endif
 
 /**
@@ -99,8 +98,6 @@ NSString *YDBExtractFileNameWithoutExtension(const char *filePath);
 //
 // There is a TON of documentation available from the project page:
 // https://github.com/robbiehanson/CocoaLumberjack
-
-#import <CocoaLumberjack/CocoaLumberjack.h>
 
 #define YDBLogAsync   NO
 #define YDBLogContext 27017
@@ -147,7 +144,6 @@ NSString *YDBExtractFileNameWithoutExtension(const char *filePath);
 #define YDB_LOG_ERROR   (NO)
 #define YDB_LOG_WARN    (NO)
 #define YDB_LOG_INFO    (NO)
-#define YDB_LOG_VERBOSE (NO)
 
 #define YDBLogError(frmt, ...)     {}
 #define YDBLogWarn(frmt, ...)      {}
