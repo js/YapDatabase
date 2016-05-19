@@ -89,37 +89,14 @@ NSString *YDBExtractFileNameWithoutExtension(const char *filePath);
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#if (YapDatabaseLoggingTechnique == YapDatabaseLoggingTechnique_Lumberjack)
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Logging Enabled.
-// Logging uses the CocoaLumberjack framework. (optimal)
-//
-// There is a TON of documentation available from the project page:
-// https://github.com/robbiehanson/CocoaLumberjack
-
-#define YDBLogAsync   NO
-#define YDBLogContext 27017
-
-#define YDBLogMaybe(flg,frmt, ...)   LOG_MAYBE(YDBLogAsync, (DDLogLevel)ydbLogLevel, (DDLogFlag)flg, YDBLogContext, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
-
-#define YDBLogError(frmt, ...)     YDBLogMaybe(YDB_LOG_FLAG_ERROR,   (@"%@: " frmt), THIS_FILE, ##__VA_ARGS__)
-#define YDBLogWarn(frmt, ...)      YDBLogMaybe(YDB_LOG_FLAG_WARN,    (@"%@: " frmt), THIS_FILE, ##__VA_ARGS__)
-#define YDBLogInfo(frmt, ...)      YDBLogMaybe(YDB_LOG_FLAG_INFO,    (@"%@: " frmt), THIS_FILE, ##__VA_ARGS__)
-#define YDBLogVerbose(frmt, ...)   YDBLogMaybe(YDB_LOG_FLAG_VERBOSE, (@"%@: " frmt), THIS_FILE, ##__VA_ARGS__)
-
-#define YDBLogTrace(frmt, ...) YDBLogMaybe(YDB_LOG_FLAG_TRACE, (@"%@: " frmt), THIS_FILE, ##__VA_ARGS__)
-#define YDBLogAutoTrace()      YDBLogMaybe(YDB_LOG_FLAG_TRACE,  @"%@: %@",     THIS_FILE, THIS_METHOD)
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#elif (YapDatabaseLoggingTechnique == YapDatabaseLoggingTechnique_NSLog)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Logging Enabled.
 // Logging uses plain old NSLog. (slower)
 
 #define YDBLogMaybe(flg, frmt, ...) \
-    do{ if(ydbLogLevel & flg) NSLog(frmt, ##__VA_ARGS__); } while(0)
+    do{ NSLog(frmt, ##__VA_ARGS__); } while(0)
 
 #define YDBLogError(frmt, ...)    YDBLogMaybe(YDB_LOG_FLAG_ERROR,   (@"%@: " frmt), THIS_FILE, ##__VA_ARGS__)
 #define YDBLogWarn(frmt, ...)     YDBLogMaybe(YDB_LOG_FLAG_WARN,    (@"%@: " frmt), THIS_FILE, ##__VA_ARGS__)
@@ -128,28 +105,3 @@ NSString *YDBExtractFileNameWithoutExtension(const char *filePath);
 
 #define YDBLogTrace(frmt, ...) YDBLogMaybe(YDB_LOG_FLAG_TRACE, (@"%@: " frmt), THIS_FILE, ##__VA_ARGS__)
 #define YDBLogAutoTrace()      YDBLogMaybe(YDB_LOG_FLAG_TRACE,  @"%@: %@",     THIS_FILE, THIS_METHOD)
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#else
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Logging Disabled
-
-#undef YDB_LOG_ERROR
-#undef YDB_LOG_WARN
-#undef YDB_LOG_INFO
-#undef YDB_LOG_VERBOSE
-
-#define YDB_LOG_ERROR   (NO)
-#define YDB_LOG_WARN    (NO)
-#define YDB_LOG_INFO    (NO)
-
-#define YDBLogError(frmt, ...)     {}
-#define YDBLogWarn(frmt, ...)      {}
-#define YDBLogInfo(frmt, ...)      {}
-#define YDBLogVerbose(frmt, ...)   {}
-
-#define YDBLogTrace(frmt, ...)     {}
-#define YDBLogAutoTrace()          {}
-
-#endif
