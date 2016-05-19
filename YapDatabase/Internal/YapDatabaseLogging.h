@@ -27,7 +27,6 @@
  * For example, you could enable errors and info, but not warnings, if you wanted.
 **/
 
-#define YDB_LOG_VERBOSE (YES)
 #define YDB_LOG_FLAG_ERROR   (1 << 0) // 0...00001
 #define YDB_LOG_FLAG_WARN    (1 << 1) // 0...00010
 #define YDB_LOG_FLAG_INFO    (1 << 2) // 0...00100
@@ -39,10 +38,10 @@
 #define YDB_LOG_LEVEL_INFO    (YDB_LOG_LEVEL_WARN  | YDB_LOG_FLAG_INFO)    // 0...00111
 #define YDB_LOG_LEVEL_VERBOSE (YDB_LOG_LEVEL_INFO  | YDB_LOG_FLAG_VERBOSE) // 0...01111
 
-#define YDB_LOG_ERROR   (ydbLogLevel & YDB_LOG_FLAG_ERROR)
-#define YDB_LOG_WARN    (ydbLogLevel & YDB_LOG_FLAG_WARN)
-#define YDB_LOG_INFO    (ydbLogLevel & YDB_LOG_FLAG_INFO)
-#define YDB_LOG_VERBOSE (ydbLogLevel & YDB_LOG_FLAG_VERBOSE)
+#define YDB_LOG_ERROR   (YES)
+#define YDB_LOG_WARN    (YES)
+#define YDB_LOG_INFO    (YES)
+#define YDB_LOG_VERBOSE (YES)
 
 /**
  * Define trace, which is in addition to log levels.
