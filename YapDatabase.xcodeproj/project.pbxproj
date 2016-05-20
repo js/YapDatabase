@@ -12,10 +12,6 @@
 		DC1E7D101D80CC26000721B8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1E7D0F1D80CC26000721B8 /* libsqlite3.tbd */; };
 		DC302B0A1BE94F99009F8C4D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65216F1BCED5D100188E23 /* libsqlite3.tbd */; };
 		DC302B0B1BE94FDF009F8C4D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC302B081BE94F31009F8C4D /* libsqlite3.tbd */; };
-		DC302B121BE950D9009F8C4D /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65216B1BCED5A500188E23 /* CocoaLumberjack.framework */; };
-		DC302B131BE950D9009F8C4D /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC65216B1BCED5A500188E23 /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC302B171BE9517B009F8C4D /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC302B041BE94F0B009F8C4D /* CocoaLumberjack.framework */; };
-		DC302B181BE9517B009F8C4D /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC302B041BE94F0B009F8C4D /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC302B471BE98DAC009F8C4D /* YapMutationStack.h in Headers */ = {isa = PBXBuildFile; fileRef = DC302B451BE98DAC009F8C4D /* YapMutationStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC302B481BE98DAC009F8C4D /* YapMutationStack.h in Headers */ = {isa = PBXBuildFile; fileRef = DC302B451BE98DAC009F8C4D /* YapMutationStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC302B491BE98DAC009F8C4D /* YapMutationStack.m in Sources */ = {isa = PBXBuildFile; fileRef = DC302B461BE98DAC009F8C4D /* YapMutationStack.m */; };
@@ -924,7 +920,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DC302B131BE950D9009F8C4D /* CocoaLumberjack.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -935,7 +930,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DC302B181BE9517B009F8C4D /* CocoaLumberjack.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1290,7 +1284,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC302B171BE9517B009F8C4D /* CocoaLumberjack.framework in Frameworks */,
 				DCD881421BE93C6200317214 /* YapDatabase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1300,7 +1293,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC8664E71BE94DC0002F7800 /* YapDatabase.framework in Frameworks */,
-				DC302B121BE950D9009F8C4D /* CocoaLumberjack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
